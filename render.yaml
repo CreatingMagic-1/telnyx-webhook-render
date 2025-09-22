@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: telnyx-webhook
+    env: node
+    plan: free
+    buildCommand: pnpm install --frozen-lockfile
+    startCommand: pnpm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # add these in the Render dashboard later (don’t commit secrets):
+      # - key: TELNYX_SIGNING_SECRET
+      #   sync: false
